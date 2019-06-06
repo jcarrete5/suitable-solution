@@ -1,14 +1,14 @@
 """
+Takes serial division expressions as arguments and
+prints the solution to each expression on a new line.
 """
+
 
 from argparse import ArgumentParser
 
 from .divide import eval_expr
 
-parser = ArgumentParser(
-    description="Takes serial division expressions as arguments and "
-                "prints the solution to each expression on a new line."
-)
+parser = ArgumentParser(description=__doc__)
 parser.add_argument(
     'expr_list',
     nargs='+',
