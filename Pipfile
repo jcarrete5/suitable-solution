@@ -5,12 +5,12 @@ verify_ssl = true
 
 [scripts]
 solver = "python -m solver"
+recommender = "python -m recommender"
 tests = "pytest"
 
 [dev-packages]
 flake8 = "*"
 pytest = "*"
-solver = {editable = true,version = "*"}
 
 [packages]
 
