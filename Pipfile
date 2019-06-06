@@ -1,0 +1,18 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[scripts]
+solver = "python -m solver"
+tests = "pytest"
+
+[dev-packages]
+flake8 = "*"
+pytest = "*"
+solver = {editable = true,version = "*"}
+
+[packages]
+
+[requires]
+python_version = "3.7"
