@@ -12,7 +12,6 @@ parser = ArgumentParser(description=__doc__)
 parser.add_argument(
     'expr_list',
     nargs='+',
-    type=str,
     metavar='expr',
     help="Expression to be evaluated"
 )
