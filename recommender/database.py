@@ -34,7 +34,7 @@ def add_restaurants(db_conn: sqlite3.Connection,
             name = entry['name']
             image_url = entry['image_url']
             categories = entry['categories']
-            price = entry['price']
+            price = entry.get('price', '#')
             rating = entry['rating']
             cur.execute("INSERT INTO restaurants VALUES (?, ?, ?, ?, ?);",
                         (id_, name, image_url, price, rating))
