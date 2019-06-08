@@ -27,5 +27,3 @@ parser.add_argument(
     help="Cache internal database"
 )
 args = parser.parse_args()
-
-
