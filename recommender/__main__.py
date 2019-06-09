@@ -25,6 +25,10 @@ parser.add_argument(
     help="JSON formatted file containing restaurant information"
 )
 parser.add_argument(
+    "teammate_id",
+    help="Recommend restaurants for this teammate"
+)
+parser.add_argument(
     "-c", "--cache",
     action='store_true',
     help="Cache internal database"
