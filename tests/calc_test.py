@@ -24,7 +24,7 @@ def db_conn():
 def test_like_sql(db_conn: sqlite3.Connection):
     test = set(
         t[0] for t in db_conn.execute(
-            calc.LIKE_SQL, ('e17b91cb-5a2c-4055-befb-1d1ea9f7daca',)
+            calc.TEAM_LIKES_SQL, ('e17b91cb-5a2c-4055-befb-1d1ea9f7daca',)
         )
     )
     actual = {
@@ -35,14 +35,14 @@ def test_like_sql(db_conn: sqlite3.Connection):
     assert test == actual
     test = set(
         t[0] for t in db_conn.execute(
-            calc.LIKE_SQL, ('3714b577-b693-4cb0-a77c-a6616c692225',)
+            calc.TEAM_LIKES_SQL, ('3714b577-b693-4cb0-a77c-a6616c692225',)
         )
     )
     actual = set()
     assert test == actual
     test = set(
         t[0] for t in db_conn.execute(
-            calc.LIKE_SQL, ('67004926-1b19-427e-a764-de8c917f3d15',)
+            calc.TEAM_LIKES_SQL, ('67004926-1b19-427e-a764-de8c917f3d15',)
         )
     )
     actual = {
@@ -55,7 +55,7 @@ def test_like_sql(db_conn: sqlite3.Connection):
 def test_dislike_sql(db_conn: sqlite3.Connection):
     test = set(
         t[0] for t in db_conn.execute(
-            calc.DISLIKE_SQL, ('e17b91cb-5a2c-4055-befb-1d1ea9f7daca',)
+            calc.TEAM_DISLIKES_SQL, ('e17b91cb-5a2c-4055-befb-1d1ea9f7daca',)
         )
     )
     actual = {
@@ -64,7 +64,7 @@ def test_dislike_sql(db_conn: sqlite3.Connection):
     assert test == actual
     test = set(
         t[0] for t in db_conn.execute(
-            calc.DISLIKE_SQL, ('3714b577-b693-4cb0-a77c-a6616c692225',)
+            calc.TEAM_DISLIKES_SQL, ('3714b577-b693-4cb0-a77c-a6616c692225',)
         )
     )
     actual = {
@@ -75,7 +75,7 @@ def test_dislike_sql(db_conn: sqlite3.Connection):
     assert test == actual
     test = set(
         t[0] for t in db_conn.execute(
-            calc.DISLIKE_SQL, ('67004926-1b19-427e-a764-de8c917f3d15',)
+            calc.TEAM_DISLIKES_SQL, ('67004926-1b19-427e-a764-de8c917f3d15',)
         )
     )
     actual = {
