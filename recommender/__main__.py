@@ -29,9 +29,9 @@ parser.add_argument(
     help="Recommend restaurants for this teammate"
 )
 parser.add_argument(
-    "-c", "--cache",
-    action='store_true',
-    help="Cache internal database"
+    "-d", "--database",
+    default=':memory:',
+    help="Location of the database to use"
 )
 args = parser.parse_args()
 
