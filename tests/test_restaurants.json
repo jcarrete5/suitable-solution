@@ -1,0 +1,70 @@
+[
+  {
+    "name": "Barbuzzo",
+    "id": "6ajnOk0GcY9xbb5Ocaw8Gw",
+    "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/XMBdEAkuMf-Xx2vxnfTdnQ/o.jpg",
+    "categories": [
+      {
+        "alias": "mediterranean",
+        "title": "Mediterranean"
+      },
+      {
+        "alias": "pizza",
+        "title": "Pizza"
+      }
+    ],
+    "price": "$$",
+    "rating": 4.5
+  },
+  {
+    "name": "Butcher Bar",
+    "id": "jS3affmkXWrBnidXA-DIfQ",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/kCWtk2yKzHhnccD1xPJ_nA/o.jpg",
+    "categories": [
+      {
+        "alias": "steak",
+        "title": "Steakhouses"
+      },
+      {
+        "alias": "bars",
+        "title": "Bars"
+      },
+      {
+        "alias": "comfortfood",
+        "title": "Comfort Food"
+      }
+    ],
+    "price": "$$",
+    "rating": 4
+  },
+  {
+    "name": "The Dandelion",
+    "id": "8pqdJjefYq-a9IBSJJmKwA",
+    "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/IUEnArSsPZglIkEWUUefoQ/o.jpg",
+    "categories": [
+      {
+        "alias": "gastropubs",
+        "title": "Gastropubs"
+      },
+      {
+        "alias": "british",
+        "title": "British"
+      }
+    ],
+    "price": "$$",
+    "rating": 4
+  },
+  {
+    "name": "Vernick Food & Drink",
+    "id": "mtvT7uRey3F395STFRM1Tg",
+    "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/KSW8IEi1arAZtUZwD7BAdw/o.jpg",
+    "categories": [
+      {
+        "alias": "newamerican",
+        "title": "American (New)"
+      }
+    ],
+    "price": "$$$",
+    "rating": 4.5
+  }
+]

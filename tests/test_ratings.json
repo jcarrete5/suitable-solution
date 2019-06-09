@@ -1,0 +1,57 @@
+[
+  {
+    "teammateId": "e17b91cb-5a2c-4055-befb-1d1ea9f7daca",
+    "restaurantId": "6ajnOk0GcY9xbb5Ocaw8Gw",
+    "rating": "DISLIKE"
+  },
+  {
+    "teammateId": "e17b91cb-5a2c-4055-befb-1d1ea9f7daca",
+    "restaurantId": "jS3affmkXWrBnidXA-DIfQ",
+    "rating": "LIKE"
+  },
+  {
+    "teammateId": "e17b91cb-5a2c-4055-befb-1d1ea9f7daca",
+    "restaurantId": "8pqdJjefYq-a9IBSJJmKwA",
+    "rating": "LIKE"
+  },
+  {
+    "teammateId": "e17b91cb-5a2c-4055-befb-1d1ea9f7daca",
+    "restaurantId": "mtvT7uRey3F395STFRM1Tg",
+    "rating": "LIKE"
+  },
+  {
+    "teammateId": "3714b577-b693-4cb0-a77c-a6616c692225",
+    "restaurantId": "6ajnOk0GcY9xbb5Ocaw8Gw",
+    "rating": "DISLIKE"
+  },
+  {
+    "teammateId": "3714b577-b693-4cb0-a77c-a6616c692225",
+    "restaurantId": "jS3affmkXWrBnidXA-DIfQ",
+    "rating": "DISLIKE"
+  },
+  {
+    "teammateId": "3714b577-b693-4cb0-a77c-a6616c692225",
+    "restaurantId": "8pqdJjefYq-a9IBSJJmKwA",
+    "rating": "DISLIKE"
+  },
+  {
+    "teammateId": "67004926-1b19-427e-a764-de8c917f3d15",
+    "restaurantId": "6ajnOk0GcY9xbb5Ocaw8Gw",
+    "rating": "DISLIKE"
+  },
+  {
+    "teammateId": "67004926-1b19-427e-a764-de8c917f3d15",
+    "restaurantId": "jS3affmkXWrBnidXA-DIfQ",
+    "rating": "LIKE"
+  },
+  {
+    "teammateId": "67004926-1b19-427e-a764-de8c917f3d15",
+    "restaurantId": "8pqdJjefYq-a9IBSJJmKwA",
+    "rating": "DISLIKE"
+  },
+  {
+    "teammateId": "67004926-1b19-427e-a764-de8c917f3d15",
+    "restaurantId": "mtvT7uRey3F395STFRM1Tg",
+    "rating": "LIKE"
+  }
+]
