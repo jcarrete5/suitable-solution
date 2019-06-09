@@ -33,6 +33,9 @@ args = parser.parse_args()
 
 with closing(db.db_connection()) as db_conn:
     db.init(db_conn)
-    db.add_ratings(db_conn, args.ratings_file)
-    db.add_restaurants(db_conn, args.restaurants_file)
-    db.add_teammates(db_conn, args.teammates_file)
+    with closing(args.ratings_file) as ratings_file:
+        db.add_ratings(db_conn, ratings_file)
+    with closing(args.restaurants_file) as restaurants_file:
+        db.add_restaurants(db_conn, restaurants_file)
+    with closing(args.teammates_file) as teammates_file:
+        db.add_teammates(db_conn, teammates_file)
