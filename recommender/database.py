@@ -7,7 +7,9 @@ RECOMMENDER_SQL_LOCATION = 'data/recommender.sql'
 
 
 def db_connection(db_location='data/recommender.sqlite3'):
-    return sqlite3.connect(db_location)
+    db_conn = sqlite3.connect(db_location)
+    db_conn.row_factory = sqlite3.Row
+    return db_conn
 
 
 def init(db_conn: sqlite3.Connection):
