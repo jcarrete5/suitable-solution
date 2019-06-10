@@ -10,7 +10,7 @@ import recommender.database as db
 
 @pytest.fixture
 def db_conn():
-    db_conn = sqlite3.connect(':memory:')
+    db_conn = db.db_connection(':memory:')
     db_conn.row_factory = sqlite3.Row
     db.init(db_conn)
     with open_text('tests', 'test_ratings.json') as ratings:
@@ -173,3 +173,9 @@ def test_prediction(db_conn: sqlite3.Connection):
     }
     test = calc.prediction(db_conn, **args)
     assert isclose(test, -0.0833, rel_tol=1e-3)
+
+
+def test_recommendation(db_conn: sqlite3.Connection):
+    answer = ["Vernick Food & Drink", "Butcher Bar", "Barbuzzo"]
+    t_id = 'e17b91cb-5a2c-4055-befb-1d1ea9f7daca'
+    assert list(calc.recommendations(db_conn, t_id)) == answer

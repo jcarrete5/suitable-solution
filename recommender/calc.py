@@ -63,3 +63,15 @@ def prediction(db_conn: sqlite3.Connection, t_id: str, r_id: str) -> float:
     dislike_sum = sum(similarity(db_conn, t_id, other) for other in other_disliked)
     total = db_conn.execute(RES_TOTAL_SQL, args).fetchone()[0]
     return (like_sum - dislike_sum) / total
+
+
+def recommendations(db_conn: sqlite3.Connection, t_id: str):
+    recommendation_sql = """
+        SELECT DISTINCT restaurants.name
+        FROM restaurants JOIN ratings ON restaurants.id=ratings.restaurantId
+        WHERE ratings.teammateId!=:t
+        ORDER BY PRED(:t, restaurants.id) DESC, restaurants.rating DESC
+        LIMIT 3
+    """
+    for row in db_conn.execute(recommendation_sql, {'t': t_id}):
+        yield row[0]

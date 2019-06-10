@@ -6,6 +6,7 @@ from argparse import ArgumentParser, FileType
 from contextlib import closing
 
 import recommender.database as db
+import recommender.calc as calc
 
 
 parser = ArgumentParser(description=__doc__)
@@ -43,3 +44,5 @@ with closing(db.db_connection()) as db_conn:
         db.add_restaurants(db_conn, restaurants_file)
     with closing(args.teammates_file) as teammates_file:
         db.add_teammates(db_conn, teammates_file)
+    for restaurant in calc.recommendations(db_conn, args.teammate_id):
+        print(restaurant)

@@ -3,12 +3,15 @@ import json
 from io import TextIOBase
 from contextlib import closing
 
+from .calc import prediction
+
 RECOMMENDER_SQL_LOCATION = 'data/recommender.sql'
 
 
 def db_connection(db_location='data/recommender.sqlite3'):
     db_conn = sqlite3.connect(db_location)
     db_conn.row_factory = sqlite3.Row
+    db_conn.create_function('PRED', 2, lambda t, r: prediction(db_conn, t, r))
     return db_conn
 
 
