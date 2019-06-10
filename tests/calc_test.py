@@ -86,14 +86,14 @@ def test_dislike_sql(db_conn: sqlite3.Connection):
     assert test == actual
 
 
-def test_total_sql(db_conn: sqlite3.Connection):
+def test_team_total_sql(db_conn: sqlite3.Connection):
     cur = db_conn.execute(
-        calc.TOTAL_SQL,
+        calc.TEAM_TOTAL_SQL,
         ("e17b91cb-5a2c-4055-befb-1d1ea9f7daca",
          "3714b577-b693-4cb0-a77c-a6616c692225"))
     assert cur.fetchone()[0] == 4
     cur = db_conn.execute(
-        calc.TOTAL_SQL,
+        calc.TEAM_TOTAL_SQL,
         ("3714b577-b693-4cb0-a77c-a6616c692225",
          "67004926-1b19-427e-a764-de8c917f3d15"))
     assert cur.fetchone()[0] == 4
