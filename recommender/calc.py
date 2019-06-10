@@ -45,14 +45,10 @@ RES_TOTAL_SQL = """
 
 def similarity(db_conn: sqlite3.Connection, t1_id: str, t2_id: str) -> float:
     """ Compute the similarity between two teammates, `t1_id` & `t2_id`. """
-    t1_like = \
-        set(t[0] for t in db_conn.execute(TEAM_LIKES_SQL, (t1_id,)))
-    t1_dislike = \
-        set(t[0] for t in db_conn.execute(TEAM_DISLIKES_SQL, (t1_id,)))
-    t2_like = \
-        set(t[0] for t in db_conn.execute(TEAM_LIKES_SQL, (t2_id,)))
-    t2_dislike = \
-        set(t[0] for t in db_conn.execute(TEAM_DISLIKES_SQL, (t2_id,)))
+    t1_like = set(t[0] for t in db_conn.execute(TEAM_LIKES_SQL, (t1_id,)))
+    t1_dislike = set(t[0] for t in db_conn.execute(TEAM_DISLIKES_SQL, (t1_id,)))
+    t2_like = set(t[0] for t in db_conn.execute(TEAM_LIKES_SQL, (t2_id,)))
+    t2_dislike = set(t[0] for t in db_conn.execute(TEAM_DISLIKES_SQL, (t2_id,)))
     both_like = len(t1_like & t2_like)
     both_dislike = len(t1_dislike & t2_dislike)
     like_dislike = len(t1_like & t2_dislike)
@@ -65,8 +61,8 @@ def prediction(db_conn: sqlite3.Connection, t_id: str, r_id: str) -> float:
     """ Predict how likely `t_id` will enjoy `r_id`. """
     args = {'t': t_id, 'r': r_id}
     other_liked = set(t[0] for t in db_conn.execute(RES_LIKES_SQL, args))
-    like_sum = sum(similarity(db_conn, t_id, other) for other in other_liked)
     other_disliked = set(t[0] for t in db_conn.execute(RES_DISLIKES_SQL, args))
+    like_sum = sum(similarity(db_conn, t_id, other) for other in other_liked)
     dislike_sum = sum(similarity(db_conn, t_id, other) for other in other_disliked)
     total = db_conn.execute(RES_TOTAL_SQL, args).fetchone()[0]
     return (like_sum - dislike_sum) / total
@@ -78,7 +74,7 @@ def recommendations(db_conn: sqlite3.Connection, t_id: str):
         SELECT DISTINCT restaurants.name
         FROM restaurants JOIN ratings ON restaurants.id=ratings.restaurantId
         WHERE ratings.teammateId!=:t
-        ORDER BY PRED(:t, restaurants.id) DESC, restaurants.rating DESC
+        ORDER BY PREDICT(:t, restaurants.id) DESC, restaurants.rating DESC
         LIMIT 3
     """
     for row in db_conn.execute(recommendation_sql, {'t': t_id}):

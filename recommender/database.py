@@ -16,7 +16,8 @@ def db_connection(db_location: str) -> sqlite3.Connection:
     """ Return a configured database connection. """
     db_conn = sqlite3.connect(db_location)
     db_conn.row_factory = sqlite3.Row
-    db_conn.create_function('PRED', 2, lambda t, r: prediction(db_conn, t, r))
+    # Wrap the prediction function as the SQL function, PREDICT
+    db_conn.create_function('PREDICT', 2, lambda t, r: prediction(db_conn, t, r))
     return db_conn
 
 

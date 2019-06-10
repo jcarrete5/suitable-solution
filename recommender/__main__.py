@@ -38,6 +38,7 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
+# Using a database to make querying information easier.
 with closing(db.db_connection(args.database)) as db_conn:
     db.init(db_conn)
     with closing(args.ratings_file) as ratings_file:
