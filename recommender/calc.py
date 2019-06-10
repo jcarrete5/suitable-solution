@@ -1,3 +1,8 @@
+"""
+Handles functionality for calculating predicted restaurants for any
+teammate.
+"""
+
 import sqlite3
 
 # All restaurants that a teammate likes
@@ -39,6 +44,7 @@ RES_TOTAL_SQL = """
 
 
 def similarity(db_conn: sqlite3.Connection, t1_id: str, t2_id: str) -> float:
+    """ Compute the similarity between two teammates, `t1_id` & `t2_id`. """
     t1_like = \
         set(t[0] for t in db_conn.execute(TEAM_LIKES_SQL, (t1_id,)))
     t1_dislike = \
@@ -56,6 +62,7 @@ def similarity(db_conn: sqlite3.Connection, t1_id: str, t2_id: str) -> float:
 
 
 def prediction(db_conn: sqlite3.Connection, t_id: str, r_id: str) -> float:
+    """ Predict how likely `t_id` will enjoy `r_id`. """
     args = {'t': t_id, 'r': r_id}
     other_liked = set(t[0] for t in db_conn.execute(RES_LIKES_SQL, args))
     like_sum = sum(similarity(db_conn, t_id, other) for other in other_liked)
@@ -66,6 +73,7 @@ def prediction(db_conn: sqlite3.Connection, t_id: str, r_id: str) -> float:
 
 
 def recommendations(db_conn: sqlite3.Connection, t_id: str):
+    """ Yield the top 3 recommended restaurants for `t_id`. """
     recommendation_sql = """
         SELECT DISTINCT restaurants.name
         FROM restaurants JOIN ratings ON restaurants.id=ratings.restaurantId
