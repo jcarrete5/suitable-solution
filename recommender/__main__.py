@@ -1,5 +1,7 @@
 """
-
+Parse JSON encoded data files about teammates food preferences and
+print out 3 restaurant recommendations that the desired teammate has
+not been to.
 """
 
 from argparse import ArgumentParser, FileType
@@ -32,7 +34,7 @@ parser.add_argument(
 parser.add_argument(
     "-d", "--database",
     default=':memory:',
-    help="Location of the database to use"
+    help="Location of the database to use. DEFAULT: ':memory:'"
 )
 args = parser.parse_args()
 
