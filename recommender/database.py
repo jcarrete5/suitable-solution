@@ -8,7 +8,7 @@ from .calc import prediction
 RECOMMENDER_SQL_LOCATION = 'data/recommender.sql'
 
 
-def db_connection(db_location='data/recommender.sqlite3'):
+def db_connection(db_location: str) -> sqlite3.Connection:
     db_conn = sqlite3.connect(db_location)
     db_conn.row_factory = sqlite3.Row
     db_conn.create_function('PRED', 2, lambda t, r: prediction(db_conn, t, r))

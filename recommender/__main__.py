@@ -38,7 +38,7 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
-with closing(db.db_connection()) as db_conn:
+with closing(db.db_connection(args.database)) as db_conn:
     db.init(db_conn)
     with closing(args.ratings_file) as ratings_file:
         db.add_ratings(db_conn, ratings_file)
